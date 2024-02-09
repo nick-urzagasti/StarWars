@@ -20,7 +20,7 @@ public class PersonajesController {
 
     @GetMapping("/searchCharacter/{name}")
     public ResponseEntity<List<PersonajeDTO>> searchCharacter(@PathVariable String name){
-        List<PersonajeDTO> characters = new ArrayList<>();
+        List<PersonajeDTO> characters;
         characters = personajeService.buscarPorNombre(name);
         if(characters.isEmpty()){
             return new ResponseEntity<>(characters, HttpStatus.NO_CONTENT);

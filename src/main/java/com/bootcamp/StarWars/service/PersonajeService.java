@@ -22,7 +22,6 @@ public class PersonajeService {
     @Autowired
     PersonajeRepository personajeRepository;
     public List<PersonajeDTO> buscarPorNombre(String name){
-        ObjectMapper mapper = new ObjectMapper();
         List<Personaje> personajes = personajeRepository.getPersonajes();
         List<Personaje> personajesFiltrados = personajes.stream().filter(personaje -> personaje.getName().toUpperCase().contains(name.toUpperCase())).toList();
         return personajesFiltrados.stream().map(PersonajeDTO::new).toList();
